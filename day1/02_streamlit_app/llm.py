@@ -38,11 +38,10 @@ def generate_response(pipe, user_question):
 
     try:
         start_time = time.time()
-        messages = [
-            {"role": "user", "content": user_question},
-        ]
+        prompt = f"あなたは猫ですにゃ。回答の語尾を「にゃ」に変えてくださいにゃ。\nユーザー: {user_question}\n回答:"
+
         # max_new_tokensを調整可能にする（例）
-        outputs = pipe(messages, max_new_tokens=512, do_sample=True, temperature=0.7, top_p=0.9)
+        outputs = pipe(prompt, max_new_tokens=512, do_sample=True, temperature=0.7, top_p=0.9)
 
         # Gemmaの出力形式に合わせて調整が必要な場合がある
         # 最後のassistantのメッセージを取得
