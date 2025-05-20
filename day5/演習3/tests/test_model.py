@@ -168,7 +168,9 @@ def test_model_reproducibility(sample_data, preprocessor):
     predictions1 = model1.predict(X_test)
     predictions2 = model2.predict(X_test)
 
-    assert np.array_equal(predictions1, predictions2), "モデルの予測結果に再現性がありません"
+    assert np.array_equal(
+        predictions1, predictions2
+    ), "モデルの予測結果に再現性がありません"
 
 
 def test_model_file_size():
@@ -176,7 +178,7 @@ def test_model_file_size():
     if not os.path.exists(MODEL_PATH):
         pytest.skip("モデルファイルが存在しないためスキップします")
 
-    size_limit = 10 * 1024 * 1024  # 10MB
+    size_limit = 10 * 1024 * 1024
     file_size = os.path.getsize(MODEL_PATH)
 
     assert (
