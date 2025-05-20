@@ -178,4 +178,7 @@ def test_model_file_size():
 
     size_limit = 10 * 1024 * 1024  # 10MB
     file_size = os.path.getsize(MODEL_PATH)
-    assert file_size < size_limit, f"モデルファイルが大きすぎます: {file_size / (1024*1024):.2f}MB"
+
+    assert (
+        file_size < size_limit
+    ), f"モデルファイルが大きすぎます: {file_size / (1024 * 1024):.2f} MB"
