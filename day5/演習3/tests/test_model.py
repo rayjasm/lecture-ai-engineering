@@ -172,6 +172,7 @@ def test_model_reproducibility(sample_data, preprocessor):
         predictions1, predictions2
     ), "モデルの予測結果に再現性がありません"
 
+
 def test_model_file_size():
     """モデルファイルのサイズが適切か確認"""
     if not os.path.exists(MODEL_PATH):
